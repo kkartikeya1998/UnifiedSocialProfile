@@ -1,6 +1,6 @@
 package com.kk.majorProject.service;
 
-import com.kk.majorProject.daolayer.DAOUserService;
+import com.kk.majorProject.daolayer.DAOCodeforcesService;
 import com.kk.majorProject.model.Codeforces.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -8,10 +8,10 @@ import org.springframework.stereotype.Service;
 
 @Service
 @Component
-public class UserService {
+public class CodeforcesUserService {
 
     @Autowired
-    DAOUserService daoUserService;
+    DAOCodeforcesService daoCodeforcesService;
 
     public User getUser(String handle){
         String[] handles = handle.split("[$]");
@@ -22,7 +22,7 @@ public class UserService {
 
 
         String url = "http://codeforces.com/api/user.info?handles=" + handleBuilder.toString();
-        return daoUserService.getUser(url);
+        return daoCodeforcesService.getUser(url);
 
     }
 
